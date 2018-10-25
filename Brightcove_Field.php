@@ -71,34 +71,34 @@ class Brightcove_Field extends Field {
      * Manually set the brightcove field data fragments.
      **/
     public function load() {
-        $this->store->load( $this );
+        $this->get_datastore()->load( $this );
 
         $name = $this->get_name();
 
         // Set the "shortcode"
         $this->set_name( $name . '-shortcode' );
-        $this->store->load( $this );
+        $this->get_datastore()->load( $this );
         if ( $this->get_value() ) {
             $this->shortcode = $this->get_value();
         }
 
         // Set the "player_id"
         $this->set_name( $name . '-player_id' );
-        $this->store->load( $this );
+        $this->get_datastore()->load( $this );
         if ( $this->get_value() ) {
             $this->player_id = $this->get_value();
         }
 
         // Set the "account_id"
         $this->set_name( $name . '-account_id' );
-        $this->store->load( $this );
+        $this->get_datastore()->load( $this );
         if ( $this->get_value() ) {
             $this->account_id = (int) $this->get_value();
         }
 
         // Set the "video_id"
         $this->set_name( $name . '-video_id' );
-        $this->store->load( $this );
+        $this->get_datastore()->load( $this );
         if ( $this->get_value() ) {
             $this->video_id = (int) $this->get_value();
         }
@@ -124,22 +124,22 @@ class Brightcove_Field extends Field {
         // Add the "shortcode" meta in the database
         $this->set_name( $name . '-shortcode' );
         $this->set_value( $value['shortcode'] );
-        $this->store->save( $this );
+        $this->get_datastore()->save( $this );
 
         // Add the "player_id" meta in the database
         $this->set_name( $name . '-player_id' );
         $this->set_value( $value['player_id'] );
-        $this->store->save( $this );
+        $this->get_datastore()->save( $this );
 
         // Add the "account_id" meta in the database
         $this->set_name( $name . '-account_id' );
         $this->set_value( $value['account_id'] );
-        $this->store->save( $this );
+        $this->get_datastore()->save( $this );
 
         // Add the "video_id" meta in the database
         $this->set_name( $name . '-video_id' );
         $this->set_value( $value['video_id'] );
-        $this->store->save( $this );
+        $this->get_datastore()->save( $this );
 
         // Set the value for the field
         $this->set_name( $name );
